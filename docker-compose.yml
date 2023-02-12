@@ -25,3 +25,9 @@ services:
       - REDIS_MASTER_PORT_NUMBER=6379
       - REDIS_MASTER_PASSWORD=password
       - REDIS_PASSWORD=password
+
+  worker:
+    network_mode: 'host'
+    depends_on:
+      - redis-master
+    build: .
